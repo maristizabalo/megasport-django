@@ -36,7 +36,7 @@ def registrar(request):
             profile.profile_picture = 'default/default-user.png'
             profile.save()
 
-            current_site = get_current_site(request)
+            """current_site = get_current_site(request)
             mail_subject = 'Por favor activa tu cuenta en MegaSport'
             body = render_to_string('cuentas/cuenta_verification_email.html', {
                 'user':user,
@@ -46,7 +46,7 @@ def registrar(request):
             })
             to_email = email
             send_email = EmailMessage(mail_subject,body,to=[to_email])
-            send_email.send()
+            send_email.send()"""
 
 
             #messages.success(request, 'Se registro exitosamente')

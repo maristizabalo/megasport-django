@@ -52,7 +52,7 @@ class Cuenta(AbstractBaseUser):
     last_login = models.DateTimeField(auto_now_add=True)
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     is_superadmin = models.BooleanField(default=False)
 
     #CAMPO PARA INICIAR SESION DEBE SER EL EMAIL NO EL USERNAME COMO POR DEFECTO VIENE CONFIGURADO EN DJANGO
