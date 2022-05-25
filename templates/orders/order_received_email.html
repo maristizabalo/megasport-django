@@ -1,0 +1,15 @@
+{% autoescape off %}
+
+    Hola {{usuario.nombre}},
+
+    Hemos recibido tu pedido No.{{ order.order_number }}
+
+    
+    Valor total:{{order.order_total}}
+    Direccion de entrega: {{order.addres_line_1}}, {{order.barrio}}, {{order.ciudad}}
+
+    Gracias por tu compra, te estaremos contactando para confirmar fecha y hora de entrega.
+    
+
+
+{% endautoescape %}
