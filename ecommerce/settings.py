@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os.path
 from pathlib import Path
 from decouple import config
 
@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-b7@1_tci2&k8izv1@ybywoo(u_zef6%ucvow2y0x=#dwmj((&d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['137.184.71.89']
+ALLOWED_HOSTS = ['137.184.71.89', 'localhost']
 
 # Application definition
 
@@ -84,42 +84,25 @@ AUTH_USER_MODEL = 'cuentas.Cuenta'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-""" if 'RDS_DB_NAME' in os.environ:
+if DEBUG:
+
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ['RDS_DB_NAME'],
-            'USER': os.environ['RDS_USERNAME'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOSTNAME'],
-            'PORT': os.environ['RDS_PORT'],
-        }
-    }
-else:"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-"""import dj_database_url
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
-}"""
-"""
-DATABASES = {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+            }
+     }
+else:
+    DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'dd261nh4vc4487',
-            'HOST': 'ec2-34-194-73-236.compute-1.amazonaws.com',
-            'USER': 'fbuasbiykboziy',
-            'PASSSWORD': '5cce2ebc10a7632fb0cd669b98bdd88b02e60ec199dd8f4df7a5cbdac95d264d',
-            'PORT': 5432
+            'NAME': 'megasport',
+            'USER': 'maicol',
+            'PASSWORD': 'Paulina.0309',
+            'HOST': 'localhost',
+            'PORT': '',
         }
-    }"""
-
+    }
 
 
 
@@ -158,10 +141,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = [
-    'ecommerce/static'
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'ecommerce/static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
