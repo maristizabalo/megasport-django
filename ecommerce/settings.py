@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-b7@1_tci2&k8izv1@ybywoo(u_zef6%ucvow2y0x=#dwmj((&d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['137.184.71.89', 'localhost', ]
+ALLOWED_HOSTS = ['137.184.71.89', 'localhost',]
 
 # Application definition
 
@@ -146,6 +146,7 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+print(MEDIA_ROOT)
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 from django.contrib.messages import constants as messages
