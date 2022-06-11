@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-b7@1_tci2&k8izv1@ybywoo(u_zef6%ucvow2y0x=#dwmj((&d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['137.184.71.89', 'localhost',]
+ALLOWED_HOSTS = ['137.184.111.162', 'localhost', 'megasport.click', 'www.megasport.click']
 
 # Application definition
 
